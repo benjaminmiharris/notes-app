@@ -1,38 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
-import Badge from 'react-bootstrap/Badge';
-import Button from 'react-bootstrap/Button';
-
-import Stack from 'react-bootstrap/Stack';
-
-function HorizontalExample() {
-  return (
-    <Stack direction="horizontal" gap={3}>
-      <div className="bg-light border ms-auto">First item</div>
-      <div className="bg-light border ms-auto">Second item</div>
-      <div className="bg-light border ms-auto">Third item</div>
-    </Stack>
-  );
-}
-
-
-function ButtonExample() {
-  return (
-    <Button variant="primary">
-      Profile <Badge bg="secondary">9</Badge>
-      <span className="visually-hidden">unread messages</span>
-    </Button>
-  );
-}
-
-
+import "./App.css";
+import AddNote from "./Components/AddNote";
+import Header from "./Components/Header";
+import Notes from "./Components/Notes";
+import { useState } from "react";
 
 function App() {
+  const [notes, setNote] = useState([]);
+
+  //note is the data which has been passed on AddNote: line 23 as params
+
+  const addNote = (note) => {
+    const id = Math.floor(Math.random() * 1000) + 1;
+
+    const timeStamp = Date.now();
+
+    const newNote = { id, timeStamp, ...note };
+
+    setNote([...notes, newNote]);
+  };
+
   return (
     <div className="App">
-      
-      < ButtonExample />
-      < HorizontalExample />
+      <Header title="A Place to store your notes!" />
+      <AddNote onAdd={addNote} />
+      <Notes notes={notes} />
     </div>
   );
 }
