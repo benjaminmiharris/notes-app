@@ -9,6 +9,7 @@ import { useState } from "react";
 
 const AddNote = ({ onAdd }) => {
   const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -20,9 +21,10 @@ const AddNote = ({ onAdd }) => {
 
     //onAdd has all of the form input passed as params
 
-    onAdd({ text });
+    onAdd({ title, text });
 
     setText("");
+    setTitle("");
   };
 
   return (
@@ -30,10 +32,20 @@ const AddNote = ({ onAdd }) => {
       <Row>
         <Col md={{ span: 6, offset: 3 }}>
           <Form className="form" onSubmit={onSubmit}>
+            <InputGroup className="mb-3">
+              <Form.Control
+                className="note-title"
+                placeholder="Title"
+                aria-label="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </InputGroup>
+
             <Form.Group className="mb-3">
               <InputGroup>
                 <Form.Control
-                  placeholder="Add your notes here"
+                  placeholder="Your note..."
                   as="textarea"
                   aria-label="With textarea"
                   value={text}

@@ -11,6 +11,7 @@ const Note = (props) => {
     <Col md={3} className="note-component">
       <CloseButton onClick={() => deleteNote(note.id)} />
       <div className="created-on-date">{createdDate()}</div>
+      <div className="note-title">{note.title}</div>
       <div className="note-text"> {note.text}</div>
     </Col>
   );
