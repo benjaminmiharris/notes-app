@@ -30,11 +30,11 @@ const AddNote = ({ onAdd }) => {
   return (
     <Container>
       <Row>
-        <Col md={{ span: 6, offset: 3 }}>
+        <Col>
           <Form className="form" onSubmit={onSubmit}>
             <InputGroup className="mb-3">
               <Form.Control
-                className="note-title"
+                className="note-title note-creator"
                 placeholder="Title"
                 aria-label="Title"
                 value={title}
@@ -45,7 +45,9 @@ const AddNote = ({ onAdd }) => {
             <Form.Group className="mb-3">
               <InputGroup>
                 <Form.Control
+                  className="note-text-input"
                   placeholder="Your note..."
+                  rows={5}
                   as="textarea"
                   aria-label="With textarea"
                   value={text}
@@ -53,7 +55,7 @@ const AddNote = ({ onAdd }) => {
                 />
               </InputGroup>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="success" type="submit">
               Add
             </Button>
           </Form>

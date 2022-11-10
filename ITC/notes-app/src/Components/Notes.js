@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 
 const Notes = ({ notes, deleteNote }) => {
   return (
-    <Container fluid>
+    <Container spacing={5}>
       <Row>
         {notes.map((note) => (
           <Note key={note.id} note={note} deleteNote={deleteNote} />

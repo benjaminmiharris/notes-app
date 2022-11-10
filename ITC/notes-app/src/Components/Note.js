@@ -1,6 +1,7 @@
 import Col from "react-bootstrap/Col";
 import moment from "moment";
 import CloseButton from "react-bootstrap/CloseButton";
+import NoteModal from "./NoteModal";
 
 const Note = (props) => {
   const { note, deleteNote } = props;
@@ -13,6 +14,7 @@ const Note = (props) => {
       <div className="created-on-date">{createdDate()}</div>
       <div className="note-title">{note.title}</div>
       <div className="note-text"> {note.text}</div>
+      <NoteModal note={note} />
     </Col>
   );
 };
