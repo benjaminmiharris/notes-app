@@ -4,6 +4,7 @@
 
 .form {
   border: 1px solid grey;
+  border-radius: 15px;
   margin: 30px;
   padding: 10px 40px 40px 40px;
 }
@@ -11,4 +12,14 @@
 .note-component {
   border: 1px solid grey;
   margin: 10px;
+  border-radius: 15px;
+}
+
+.created-on-date {
+  font-size: 0.75em;
+  font-style: italic;
+}
+
+.note-text {
+  font-size: 1em;
 }

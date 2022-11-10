@@ -12,18 +12,22 @@ function App() {
   const addNote = (note) => {
     const id = Math.floor(Math.random() * 1000) + 1;
 
-    const timeStamp = Date.now();
-
-    const newNote = { id, timeStamp, ...note };
+    const newNote = { id, ...note };
 
     setNote([...notes, newNote]);
   };
+
+  function deleteNote(id) {
+    window.confirm("Are you sure you want to delete your note?")
+      ? setNote(notes.filter((note) => note.id !== id))
+      : setNote(notes);
+  }
 
   return (
     <div className="App">
       <Header title="A Place to store your notes!" />
       <AddNote onAdd={addNote} />
-      <Notes notes={notes} />
+      <Notes notes={notes} deleteNote={deleteNote} />
     </div>
   );
 }
