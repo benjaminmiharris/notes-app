@@ -1,23 +1,20 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function NoteModal({ note }) {
-  const [smShow, setSmShow] = useState(false);
-
+function NoteModal({ note, isModalOpen }) {
   return (
     <>
-      <Button onClick={() => setSmShow(true)} className="me-2">
-        Small modal
-      </Button>
-
       <Modal
         size="sm"
-        show={smShow}
-        onHide={() => setSmShow(false)}
+        show={isModalOpen}
         aria-labelledby="example-modal-sizes-title-sm"
       >
-        <Modal.Header closeButton>
+        <Modal.Header
+          closeButton
+          onClick={() => {
+            console.log("close");
+          }}
+        >
           <Modal.Title id="example-modal-sizes-title-sm">
             {note.title}
           </Modal.Title>
