@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
-function NoteModal({ note, isModalOpen }) {
+function NoteModal({ note, isModalOpen, hideModal }) {
   return (
     <>
       <Modal
@@ -9,12 +8,7 @@ function NoteModal({ note, isModalOpen }) {
         show={isModalOpen}
         aria-labelledby="example-modal-sizes-title-sm"
       >
-        <Modal.Header
-          closeButton
-          onClick={() => {
-            console.log("close");
-          }}
-        >
+        <Modal.Header closeButton onClick={hideModal}>
           <Modal.Title id="example-modal-sizes-title-sm">
             {note.title}
           </Modal.Title>

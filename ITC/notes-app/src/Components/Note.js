@@ -12,7 +12,7 @@ const Note = (props) => {
   const [popUpModal, setPopUpModal] = useState(false);
 
   function showModal() {
-    setPopUpModal(true);
+    setPopUpModal(!popUpModal);
   }
 
   return (
@@ -22,7 +22,7 @@ const Note = (props) => {
       <div className="note-title">{note.title}</div>
       <div className="note-text"> {note.text}</div>
 
-      <NoteModal note={note} isModalOpen={popUpModal} />
+      <NoteModal note={note} isModalOpen={popUpModal} hideModal={showModal} />
     </Col>
   );
 };
