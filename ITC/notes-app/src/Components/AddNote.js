@@ -45,6 +45,7 @@ const AddNote = ({ onAdd }) => {
             <Form.Group className="mb-3">
               <InputGroup>
                 <Form.Control
+                  required
                   className="note-text-input"
                   placeholder="Your note..."
                   rows={5}
