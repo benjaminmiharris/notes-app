@@ -19,8 +19,6 @@ const AddNote = ({ onAdd }) => {
       return;
     }
 
-    //onAdd has all of the form input passed as params
-
     onAdd({ title, text });
 
     setText("");
