@@ -9,27 +9,28 @@ const Note = (props) => {
 
   const createdDate = () => moment().format("LLL");
 
-  const [popUpModal, setPopUpModal] = useState(false);
   const [noteTitle, setNoteTitle] = useState(note.title);
   const [noteText, setNoteText] = useState(note.text);
 
-  function showModal() {
-    setPopUpModal(!popUpModal);
-  }
+  const [updateDate, setUpdateDate] = useState("");
 
   return (
-    <Col onClick={showModal} md={3} className="note-component">
+    <Col md={3} className="note-component">
       <CloseButton onClick={() => deleteNote(note.id)} />
       <div className="created-on-date">{createdDate()}</div>
+
+      {updateDate.length > 0 && (
+        <div className="created-on-date">Updated on {updateDate}</div>
+      )}
+
       <div className="note-title">{noteTitle}</div>
       <div className="note-text"> {noteText}</div>
 
       <NoteModal
         note={note}
-        isModalOpen={popUpModal}
-        hideModal={showModal}
         setTitle={setNoteTitle}
         setText={setNoteText}
+        setUpdateDate={setUpdateDate}
       />
     </Col>
   );

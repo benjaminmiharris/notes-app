@@ -3,11 +3,14 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import moment from "moment";
 
-function NoteModal({ note, setTitle, setText }) {
+function NoteModal({ note, setTitle, setText, setUpdateDate }) {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+  };
   const handleShow = () => setShow(true);
 
   const [modalNoteTitle, setModalTitle] = useState(note.title);
@@ -24,6 +27,7 @@ function NoteModal({ note, setTitle, setText }) {
   const updateNote = () => {
     setTitle(modalNoteTitle);
     setText(modalNoteText);
+    setUpdateDate(moment().format("LLL"));
     handleClose();
   };
 
@@ -35,8 +39,8 @@ function NoteModal({ note, setTitle, setText }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
-        Launch static backdrop modal
+      <Button variant="success" onClick={handleShow}>
+        Edit{" "}
       </Button>
 
       <Modal
