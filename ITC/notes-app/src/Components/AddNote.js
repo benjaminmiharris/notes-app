@@ -6,6 +6,7 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 
 import { useState } from "react";
+import localforage from "localforage";
 
 const AddNote = ({ onAdd }) => {
   const [text, setText] = useState("");
@@ -20,6 +21,7 @@ const AddNote = ({ onAdd }) => {
     }
 
     onAdd({ title, text });
+    localforage.setItem(title, text);
 
     setText("");
     setTitle("");
