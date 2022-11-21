@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
+import * as localForage from "localforage";
+import moment from "moment";
 
 import { useState } from "react";
 
@@ -18,6 +20,11 @@ const AddNote = ({ onAdd }) => {
       alert("Please add some text to this note!");
       return;
     }
+
+    localForage.setItem(moment().format("LLL"), {
+      title: title,
+      text: text,
+    });
 
     onAdd({ title, text });
 
