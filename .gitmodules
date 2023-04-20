@@ -1,0 +1,6 @@
+[submodule "ITC/notes-app/ITC/notes-app/react---notes-app-benjaminmiharris"]
+	path = ITC/notes-app/ITC/notes-app/react---notes-app-benjaminmiharris
+	url = https://github.com/mark-itc/react---notes-app-benjaminmiharris
+[submodule "ITC/notes-app/notes-app"]
+	path = ITC/notes-app/notes-app
+	url = https://github.com/mark-itc/react---notes-app-benjaminmiharris
